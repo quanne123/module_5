@@ -45,7 +45,8 @@ let courses = [
 ];
 //trả về mảng có Rating >= 4
 let newCourses = courses.filter(courses => courses.rating >= 4);
-console.log(newCourses)
+let courseNew = newCourses.map(newCourses => newCourses.title);
+console.log(courseNew)
 
 //trả về mảng có Rating < 4
 let newVipCourses = courses.filter(courses => courses.rating < 4 );
