@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facility</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        .bg-img {
+            background-image: url("data:image/jpeg;base64,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");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .imgcard:hover {
+            cursor: pointer;
+        }
+
+    </style>
+    <!--    <link rel="stylesheet" href="css.css">-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container-fluid" >
+<div style="margin-top:20px;margin-bottom: 10px" >
+    <div>
+        <div class="row modalbg ">
+            <ul class="nav justify-content-center">
+                <li class="nav-item " style="margin-left: 50px">
+                    <img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" height="100" width="75">
+                </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li class="nav-item " style="margin-left: 50px">
+                    <div class="card" style="width: 8rem;height: 6rem">
+                        <img src="https://truevaluevietnam.com/wp-content/uploads/2015/10/TA_brand_logo.png" height="55"
+                             class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                        </div>
+                    </div>
+                </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="margin-left: 50px" class="nav-item ">
+                    <p style="display: inline">
+                        103 - 105 Đường Võ Nguyên Giáp, Phường Mỹ Khuê,<br>
+                        Quận Ngũ Hành Sơn, Thành Phố Đà Nẵng, Việt Nam <br>
+                        <br>
+                        Cách sân bay Đà Nẵng 7km.
+                    </p>
+                </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li class="nav-item " style="margin-top: 30px;margin-left: 50px">
+                    <p>84-236-3847 333/888 <br>
+                        reservation@furamavietnam.com</p>
+                </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li class="nav-item " style="margin-top: 30px;margin-left: 50px">
+                    <p>Furama</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row" style="height:75px">
+    <nav class="navbar navbar-light" style="background-color: teal">
+        <div class="container-fluid" style="position: relative">
+            <a class="navbar-brand"
+               href="#">Trang Chủ</a>
+            <button class="btn btn-outline-light" style="position: absolute;left: 150px" data-bs-toggle="modal"
+                    data-bs-target="#addmodal">Thêm Dịch Vụ
+            </button>
+            <form style="position:absolute ;top: 1px;right: 30px"
+                  class="d-flex">
+                <input class="form-control me-2" type="search" name="name" placeholder="Tên Dịch Vụ"
+                       aria-label="Search">
+                <input class="form-control me-2" type="search" name="type" placeholder="Loại Dịch Vụ"
+                       aria-label="Searcase_studych">
+                <button class="btn btn-outline-light" type="submit">Tìm</button>
+            </form>
+        </div>
+    </nav>
+</div>
+<div class="row" style="max-height: 350px; overflow: hidden;position: relative; text-align: center">
+    <img src="https://furamavietnam.com/wp-content/uploads/2018/11/Vietnam_Danang_Furama_Resort_Exterior-Lagoon-Pool.jpg"
+         style="height: 100%;">
+    <p class="centered" style="position: absolute; top: 50%; font-family: '.VnCentury Schoolbook';
+    left: 50%; transform: translate(-50%, -50%); font-size: 50px;color: aliceblue">ROOMS & SUITES</p>
+</div>
+
+<div class=" row">
+    <div>
+        <br>
+        <br>
+        <div class="card parent" style="width: 18rem;display: inline-block;margin-left: 70px"
+             onmouseover="showButton(this)" onmouseout="hideButton(this)">
+            <img src="https://motortrip.vn/wp-content/uploads/2022/03/khach-san-17.jpg"
+                 class="card-img-top imgcard imgbutton" alt="...">
+            <div class="card-body">
+                <p class="card-text" style="font-weight: bold;font-size: 20px">Armani Hotel</p>
+                <p class="card-text" style="font-weight: lighter;margin-top: -15px;width: 100%">Room size: 85.2
+                    m<sup>2</sup> <a href=""
+                                     style="position: absolute;right: 15px;text-decoration: none;color: darkgreen"><i
+                            class="fa-sharp fa-solid fa-paper-plane"></i> Know more</a></p>
+                <div class="button-container" style="display:none;">
+                    <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#editModal">Sửa
+                    </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal">Xoá
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;display: inline-block;margin-left: 70px" onmouseover="showButton(this)"
+             onmouseout="hideButton(this)">
+            <img src="https://vcdn1-dulich.vnecdn.net/2022/07/29/hypat-1659069584-1659081355.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ateHKAAnu32uybgAOx-emA"
+                 class="card-img-top imgcard" alt="...">
+
+            <div class="card-body">
+                <p class="card-text" style="font-weight: bold;font-size: 20px">Boscolo Exedra</p>
+                <p class="card-text" style="font-weight: lighter;margin-top: -15px;width: 100%">Room size: 85.2
+                    m<sup>2</sup> <a href=""
+                                     style="position: absolute;right: 15px;text-decoration: none;color: darkgreen"><i
+                            class="fa-sharp fa-solid fa-paper-plane"></i> Know more</a></p>
+                <div class="button-container" style="display:none;">
+                    <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#editModal">Sửa
+                    </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal">Xoá
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;display: inline-block;margin-left: 70px" onmouseover="showButton(this)"
+             onmouseout="hideButton(this)">
+            <img src="https://pix10.agoda.net/hotelImages/2817185/-1/4406a970306a452300f94532410dab2c.jpg?ca=10&ce=1&s=1024x768"
+                 class="card-img-top imgcard" alt="...">
+            <div class="card-body">
+                <p class="card-text" style="font-weight: bold;font-size: 20px">OrchidHeaven</p>
+                <p class="card-text" style="font-weight: lighter;margin-top: -15px;width: 100%">Room size: 85.2
+                    m<sup>2</sup> <a href=""
+                                     style="position: absolute;right: 15px;text-decoration: none;color: darkgreen"><i
+                            class="fa-sharp fa-solid fa-paper-plane"></i> Know more</a></p>
+                <div class="button-container" style="display:none;">
+                    <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#editModal">Sửa
+                    </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal">Xoá
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;display: inline-block;margin-left: 70px" onmouseover="showButton(this)"
+             onmouseout="hideButton(this)">
+            <img src="https://hoanghaihotel.vn/Data/images/tintuc/10032021170917-gioi-thieu-ve-khach-san-hoang-hai.jpg"
+                 class="card-img-top imgcard imgbutton" alt="...">
+            <div class="card-body">
+                <p class="card-text" style="font-weight: bold;font-size: 20px">Hotel Areias do Seixo</p>
+                <p class="card-text" style="font-weight: lighter;margin-top: -15px;width: 100%">Room size: 85.2
+                    m<sup>2</sup> <a href=""
+                                     style="position: absolute;right: 15px;text-decoration: none;color: darkgreen"><i
+                            class="fa-sharp fa-solid fa-paper-plane"></i> Know more</a></p>
+                <div class="button-container" style="display:none;">
+                    <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#editModal">Sửa
+                    </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal">Xoá
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br> <br>
+        <div class="card" style="width: 18rem;display: inline-block;margin-left: 70px" onmouseover="showButton(this)"
+             onmouseout="hideButton(this)">
+            <img src="https://hanoihotel.com.vn/wp-content/uploads/sites/97/2020/04/hanoi-hotel17942.jpg"
+                 class="card-img-top imgcard imgbutton" alt="...">
+            <div class="card-body">
+                <p class="card-text" style="font-weight: bold;font-size: 20px">Motel Magic</p>
+                <p class="card-text" style="font-weight: lighter;margin-top: -15px;width: 100%">Room size: 85.2
+                    m<sup>2</sup> <a href=""
+                                     style="position: absolute;right: 15px;text-decoration: none;color: darkgreen"><i
+                            class="fa-sharp fa-solid fa-paper-plane"></i> Know more</a></p>
+                <div class="button-container" style="display:none;">
+                    <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#editModal">Sửa
+                    </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal">Xoá
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;display: inline-block;margin-left: 70px" onmouseover="showButton(this)"
+             onmouseout="hideButton(this)">
+            <img src="https://i.ex-cdn.com/nhadautu.vn/files/content/2020/05/08/kinh-doanh-khach-san-1-2149.jpg"
+                 class="card-img-top imgcard imgbutton" alt="...">
+            <div class="card-body">
+                <p class="card-text" style="font-weight: bold;font-size: 20px">Hotel Villa Honegg</p>
+                <p class="card-text" style="font-weight: lighter;margin-top: -15px;width: 100%">Room size: 85.2
+                    m<sup>2</sup> <a href=""
+                                     style="position: absolute;right: 15px;text-decoration: none;color: darkgreen"><i
+                            class="fa-sharp fa-solid fa-paper-plane"></i> Know more</a></p>
+                <div class="button-container" style="display:none;">
+                    <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#editModal">Sửa
+                    </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal">Xoá
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;display: inline-block;margin-left: 70px" onmouseover="showButton(this)"
+             onmouseout="hideButton(this)">
+            <img src="https://vcdn1-dulich.vnecdn.net/2021/05/14/stunning-sunset-at-the-1620959674-1620963331.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=RAP72v1BULO6wM4YrQx1sg"
+                 class="card-img-top imgcard imgbutton" alt="...">
+            <div class="card-body">
+                <p class="card-text" style="font-weight: bold;font-size: 20px">Lover's Deep Luxury</p>
+                <p class="card-text" style="font-weight: lighter;margin-top: -15px;width: 100%">Room size: 85.2
+                    m<sup>2</sup> <a href=""
+                                     style="position: absolute;right: 15px;text-decoration: none;color: darkgreen"><i
+                            class="fa-sharp fa-solid fa-paper-plane"></i> Know more</a></p>
+                <div class="button-container" style="display:none;">
+                    <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#editModal">Sửa
+                    </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal">Xoá
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;display: inline-block;margin-left: 70px" onmouseover="showButton(this)"
+             onmouseout="hideButton(this)">
+            <img src="https://mixhotel.vn/uploads/images/62abe8ead6a5eb614f4bdc08/khach-san-tinh-yeu-trung-son__6_.webp"
+                 class="card-img-top imgcard imgbutton" alt="...">
+            <div class="card-body">
+                <p class="card-text" style="font-weight: bold;font-size: 20px">Trinity Energy</p>
+                <p class="card-text" style="font-weight: lighter;margin-top: -15px;width: 100%">Room size: 85.2
+                    m<sup>2</sup> <a href=""
+                                     style="position: absolute;right: 15px;text-decoration: none;color: darkgreen"><i
+                            class="fa-sharp fa-solid fa-paper-plane"></i> Know more</a></p>
+                <div class="button-container" style="display:none;">
+                    <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#editModal">Sửa
+                    </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal">Xoá
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br> <br>
+    </div>
+    <br><br>
+    <center>
+        <a class="btn btn-primary" id="preButton">Previous</a>
+        <span class="btn btn-outline-light">1</span>
+        <a class="btn btn-primary" id="nexButton">Next</a>
+
+    </center>
+    <br> <br><br>
+</div>
+<div class="row footer" style="background: darkcyan">
+    <div class="col-12 col-md-1 col-sm-1"></div>
+    <div class="col 12 col-sm-5 col-md-3 text-bg-light p-3 ">
+        <h2 class="d-flex align-self-center fw-light text-warning pt-2">Hướng Dẫn Di Chuyển</h2>
+        <p>Khu nghỉ dưỡng Furama là cơ sở hàng đầu để khám phá một trong những điểm đến hấp dẫn nhất Châu Á.
+            Chỉ cách Đà Nẵng một quãng lái xe ngắn là bốn Di sản Văn hóa Thế giới được UNESCO công nhận</p>
+        <h3 class="text-decoration-none fw-light"><a
+                href="https://www.google.com/maps/place/Furama+Resort+Danang/@16.0399456,108.2510681,17z/data=!3m1!4b1!4m8!3m7!1s0x31420fdbc8cc38ef:0x9a6a3e31121225d2!5...l=vi-VNl">Xem
+            trên bản đồ</a></h3>
+        <h4>Địa Điểm</h4>
+        <table class="table tab-content">
+            <tr>
+                <td>1.Cố đô Huế</td>
+                <td>2 tiếng</td>
+            </tr>
+            <tr>
+                <td>2.Phố cổ Hội An</td>
+                <td>30 phút</td>
+            </tr>
+            <tr>
+                <td>3.
+                    Thánh địa Mỹ Sơn
+                </td>
+                <td>90 phút</td>
+            </tr>
+            <tr>
+                <td>4.
+                    Động Phong Nha
+                </td>
+                <td>3 tiếng</td>
+            </tr>
+
+        </table>
+
+    </div>
+    <div class="col-12 col-md-6 col-sm-8 row">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-12 text-white p-3">
+                <p>Giá công bố</p>
+                <p>Tuyển dụng</p>
+            </div>
+            <div class="col-sm-12 col-md-6 col-12 text-white p-3 ">
+                <p>Liên hệ</p>
+                <p class="fs-9 fst-italic">
+                    103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Danang City, Vietnam
+                    Tel.: 84-236-3847 333/888 * Fax: 84-236-3847 666
+                    Email: reservation@furamavietnam.com * www.furamavietnam.com GDS Codes: Amadeus-GD DADFUR,
+                    Galileo/Apollo-GD 16236, Sabre-GD 032771, Worldspan- GD DADFU
+                </p>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-6 col-sm-12 row text-white p-3  ">
+            <p> © 2018 Furama Resort Danang</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal " tabindex="-1" id="addmodal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm mới dịch vụ <i class="fa-sharp fa-solid fa-user"></i></h5>
+                <button type="button" class="btn-close clearError" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <input type="hidden" name="validate" value="add">
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Loại Dịch Vụ</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" onchange="facility()" id="selectValue">
+                                <option class="form-control" value="1">Villa</option>
+                                <option class="form-control" value="2">House</option>
+                                <option class="form-control" value="3">Room</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Tên Dịch Vụ</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Diện Tích</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Chi Phí Thuê</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Số Người Tối Đa</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Kiểu Thuê</label>
+                        <div class="col-sm-10">
+                            <select class="form-control">
+                                <option class="form-control" value="1">Year</option>
+                                <option class="form-control" value="2">Month</option>
+                                <option class="form-control" value="3">Day</option>
+                                <option class="form-control" value="4">Hour</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row" id="standardAdd">
+                        <label class="col-sm-2 col-form-label">Tiêu Chuẩn Phòng</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row" id="descriptionAdd">
+                        <label class="col-sm-2 col-form-label">Mô Tả Khác</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="mb-3 row" id="poolAreaAdd">
+                        <label class="col-sm-2 col-form-label">Diện Tích Hồ Bơi</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row" id="numberOfFloorAdd">
+                        <label class="col-sm-2 col-form-label">Số Tầng</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row d-none" id="addFreeService">
+                        <label class="col-sm-2 col-form-label">Dịch Vụ Miễn Phí</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary clearError" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Xác Nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xác Nhận Xóa</h5>
+                <button type="button" class="btn-close clearError" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <p>Bạn có chắn chắn muốn xóa dịch vụ <b><span id="nameDelete"></span> </b> ?</p>
+                </div>
+                <input type="hidden" name="id" id="idDelete">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary clearError" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Xóa</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" id="editModal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sửa thông tin dịch vụ <i class="fa-sharp fa-solid fa-user"></i></h5>
+                <button type="button" class="btn-close clearError" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" name="validate" value="edit">
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Tên Dịch Vụ</label>
+                        <div class="col-sm-10">
+                            <input type="hidden" class="form-control" id="idEdit">
+                            <input type="text" class="form-control" id="nameEdit">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Diện Tích</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="areaEdit">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Chi Phí Thuê</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="costEdit">
+
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Số Người Tối Đa</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="maxPeopleEdit">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Kiểu Thuê</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="rentTypeEdit">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Loại Dịch Vụ</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="facilityTypeEdit" onchange="newUpdate()"
+                            >
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row" id="standardEditCheck">
+                        <label class="col-sm-2 col-form-label">Tiêu Chuẩn Phòng</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="standardEdit">
+                        </div>
+                    </div>
+                    <div class="mb-3 row" id="descriptionEditCheck">
+                        <label class="col-sm-2 col-form-label">Mô Tả Khác</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="descriptionEdit"
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-3 row" id="poolAreaEdit">
+                        <label class="col-sm-2 col-form-label">Diện Tích Hồ Bơi</label>
+                        <div class="col-sm-10">
+                            <input type="number" id="poolEdit" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row" id="numberOfFloorEdit">
+                        <label class="col-sm-2 col-form-label">Số Tầng</label>
+                        <div class="col-sm-10">
+                            <input type="number" id="numberFloorEdit" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row d-none" id="editFreeService">
+                        <label class="col-sm-2 col-form-label">Dịch Vụ Miễn Phí</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="facilityFreeEdit">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary clearError" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Xác Nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script>
+    function showButton(element) {
+        var buttons = element.getElementsByClassName("button-container")[0];
+        buttons.style.display = "block";
+    }
+
+    function hideButton(element) {
+        var buttons = element.getElementsByClassName("button-container")[0];
+        buttons.style.display = "none";
+    }
+</script>
+
+</html>
+
+
+
+
+
+

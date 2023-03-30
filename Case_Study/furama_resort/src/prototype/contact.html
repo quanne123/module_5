@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .bg-img {
+            background-image: url("data:image/jpeg;base64,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");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container-fluid">
+<div style="margin-top:20px;margin-bottom: 10px" >
+    <div>
+        <div class="row modalbg ">
+            <ul class="nav justify-content-center">
+                <li  class="nav-item " style="margin-left: 50px">
+                    <img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" height="100" width="75">
+                </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li  class="nav-item " style="margin-left: 50px">
+                    <div class="card" style="width: 8rem;height: 6rem">
+                        <img src="https://truevaluevietnam.com/wp-content/uploads/2015/10/TA_brand_logo.png" height="55"
+                             class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                        </div>
+                    </div>
+                </li>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li  style="margin-left: 50px"  class="nav-item ">
+                    <p style="display: inline">
+                        103 - 105 Đường Võ Nguyên Giáp, Phường  Mỹ Khuê,<br>
+                        Quận Ngũ Hành Sơn,  Thành Phố Đà Nẵng, Việt Nam <br>
+                        <br>
+                        Cách sân bay Đà Nẵng 7km.
+                    </p>
+                </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li class="nav-item " style="margin-top: 30px;margin-left: 50px">
+                    <p>84-236-3847 333/888 <br>
+                        reservation@furamavietnam.com</p>
+                </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li class="nav-item " style="margin-top: 30px;margin-left: 50px">
+                    <p>Furama </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="height:75px">
+    <nav class="navbar navbar-light" style="background-color: teal">
+        <div class="container-fluid" style="position: relative">
+            <a class="navbar-brand"
+               href="#">Trang Chủ</a>
+
+            <button class="btn btn-outline-light" style="position: absolute;left: 150px" data-bs-toggle="modal"
+                    data-bs-target="#addmodal">Thêm Hợp Đồng
+            </button>
+            <form  style="position:absolute ;top: 1px;right: 30px"
+                   class="d-flex">
+                <input class="form-control me-2" type="search" name="name" placeholder="Tên Khách Hàng"
+                       aria-label="Search">
+                <input class="form-control me-2" type="search" name="type" placeholder="Tên Loại Dịch Vụ"
+                       aria-label="Searcase_studych">
+                <button class="btn btn-outline-light" type="submit">Tìm</button>
+            </form>
+        </div>
+    </nav>
+</div>
+
+<div>
+    <br>
+    <h1 style="text-align: center"> Danh Sách Hợp Đồng</h1>
+    <br> <br> <br>
+    <table class="table" style="backdrop-filter: blur(10px);color: black;font-weight: bold">
+        <thead><tr>
+            <th>#</th>
+            <th>Dịch Vụ</th>
+            <th>Nhân Viên</th>
+            <th>Khách Hàng</th>
+            <th>Ngày Bắt Đầu</th>
+            <th>Ngày Kết Thúc</th>
+            <th>Tiền Đặt Cọc</th>
+            <th>Tổng Tiền</th>
+            <th>Các Dịch Vụ Đi Kèm</th>
+        </tr>
+        </thead>
+
+    </table>
+    <center>
+        <a class="btn btn-light" id="pre">Previous</a>
+        <button id="pagez" class="btn btn-outline-light">1</button>
+        <a class="btn btn-light" id="nex">Next</a>
+    </center>
+    <br>
+    <br>
+</div>
+<div class="row footer" style="background: darkcyan">
+    <div class="col-12 col-md-1 col-sm-1"></div>
+    <div class="col 12 col-sm-5 col-md-3 text-bg-light p-3 ">
+        <h2 class="d-flex align-self-center fw-light text-warning pt-2">Hướng Dẫn Di Chuyển</h2>
+        <p>Khu nghỉ dưỡng Furama là cơ sở hàng đầu để khám phá một trong những điểm đến hấp dẫn nhất Châu Á.
+            Chỉ cách Đà Nẵng một quãng lái xe ngắn là bốn Di sản Văn hóa Thế giới được UNESCO công nhận</p>
+        <h3 class="text-decoration-none fw-light"><a
+                href="https://www.google.com/maps/place/Furama+Resort+Danang/@16.0399456,108.2510681,17z/data=!3m1!4b1!4m8!3m7!1s0x31420fdbc8cc38ef:0x9a6a3e31121225d2!5...l=vi-VNl">Xem
+            trên bản đồ</a></h3>
+        <h4>Địa Điểm</h4>
+        <table class="table tab-content">
+            <tr>
+                <td>1.Cố đô Huế</td>
+                <td>2 tiếng</td>
+            </tr>
+            <tr>
+                <td>2.Phố cổ Hội An</td>
+                <td>30 phút</td>
+            </tr>
+            <tr>
+                <td>3.
+                    Thánh địa Mỹ Sơn
+                </td>
+                <td>90 phút</td>
+            </tr>
+            <tr>
+                <td>4.
+                    Động Phong Nha
+                </td>
+                <td>3 tiếng</td>
+            </tr>
+
+        </table>
+
+    </div>
+    <div class="col-12 col-md-6 col-sm-8 row">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-12 text-white p-3">
+                <p>Giá công bố</p>
+                <p>Tuyển dụng</p>
+            </div>
+            <div class="col-sm-12 col-md-6 col-12 text-white p-3 ">
+                <p>Liên hệ</p>
+                <p class="fs-9 fst-italic">
+                    103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Danang City, Vietnam
+                    Tel.: 84-236-3847 333/888 * Fax: 84-236-3847 666
+                    Email: reservation@furamavietnam.com * www.furamavietnam.com GDS Codes: Amadeus-GD DADFUR,
+                    Galileo/Apollo-GD 16236, Sabre-GD 032771, Worldspan- GD DADFU
+                </p>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-6 col-sm-12 row text-white p-3  ">
+            <p> © 2018 Furama Resort Danang</p>
+        </div>
+    </div>
+</div>
+</div>
+<!--Thêm dịch vụ đi kèm-->
+<div class="modal" tabindex="-1" id="editModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm dịch vụ đi kèm <i class="fa-sharp fa-solid fa-user"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Dịch Vụ</label>
+                        <div class="col-sm-10">
+                            <select  id="attachFacilityAdd" class="form-control">
+                                <option ></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Số Lượng</label>
+                        <input type="hidden"  id="contractIdAdd">
+                        <div class="col-sm-10">
+                            <input type="number" id="quantityAdd" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" onclick="addContractDetail()" class="btn btn-primary">Thêm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Hiển thị dịch vụ đi kèm-->
+<div class="modal" tabindex="-1" id="viewAttachFacility">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Dịch Vụ Đi Kèm Của Hợp Đồng Này</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <input type="hidden"  id="modalCheck">
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Dịch Vụ</th>
+                        <th>Đơn Giá</th>
+                        <th>Xuất</th>
+                        <th>Trạng Thái</th>
+                        <th>Số Lượng</th>
+                        <th>Tổng Tiền</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tableAttachFacilityNew">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Thoát</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Thêm hợp đồng-->
+<div class="modal" tabindex="-1" id="addmodal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tạo Hợp Đồng <i class="fa-sharp fa-solid fa-user"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Ngày Bắt Đầu</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Ngày Kết Thúc</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Tiền Gửi</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Tổng Tiền</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" readonly id="tongTien">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Khách Hàng</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" >
+                                <option ></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Nhân Viên</label>
+                        <div class="col-sm-10">
+                            <select class="form-control"  >
+                                <option ></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Dịch Vụ</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" >
+                                <option ></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" onclick="addContract()" class="btn btn-primary">Xác Nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
