@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class FormCreateFacility extends Component {
+class FormEditFacility extends Component {
     render() {
         return (
             <div>
-                <div className="modal " tabIndex="-1" id="addmodal">
+                <div className="modal " tabIndex="-1" id="editmodal">
                     <div className="modal-dialog modal-xl">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -21,7 +21,7 @@ class FormCreateFacility extends Component {
                             </div>
                             <div className="modal-body">
                                 <form method="post">
-                                    <input type="hidden" name="validate" value="add" />
+                                    <input type="hidden" name="validate" value="edit" />
                                     <div className="mb-3 row">
                                         <label className="col-sm-2 col-form-label">
                                             Loại Dịch Vụ
@@ -142,5 +142,5 @@ class FormCreateFacility extends Component {
     }
 }
 
-export default FormCreateFacility;
+export default FormEditFacility;
 
