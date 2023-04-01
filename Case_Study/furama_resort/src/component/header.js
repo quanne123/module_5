@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Home = () => {
+const Header = () => {
     return (
         <div>
             <div className="row header h-20 bg-white">
@@ -43,4 +43,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Header;
