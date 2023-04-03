@@ -4,7 +4,7 @@ class FormCreateFacility extends Component {
     render() {
         return (
             <div>
-                <div className="modal " tabIndex="-1" id="addmodal">
+                <div className="modal" tabIndex="-1" id="addmodal">
                     <div className="modal-dialog modal-xl">
                         <div className="modal-content">
                             <div className="modal-header">
