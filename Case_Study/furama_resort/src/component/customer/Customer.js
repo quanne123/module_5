@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../Header';
 import  {customerList}  from './CustomerData';
+import {customerType} from "./CustomerType";
 function Customer() {
     return (
         <div style={{marginBottom: '-80px'}}>
@@ -34,7 +35,13 @@ function Customer() {
                             <td>{customer.identityNumb}</td>
                             <td>{customer.phoneNumb}</td>
                             <td>{customer.email}</td>
-                            <td>{customer.type}</td>
+                            <td>
+                                {
+                                    customerType.filter(
+                                        (type) => type.id === customer.typeId
+                                    )[0].name
+                                }
+                            </td>
                             <td>{customer.address}</td>
                             <td>
                                 {/*<button*/}
