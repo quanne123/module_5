@@ -1,54 +1,69 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import {useEffect, useState} from "react";
+import * as bookService from "../service/bookService";
+import {Link} from "react-router-dom";
 
-const BookList = () => {
-    const [books, setBooks] = useState([]);
-
+function BookList() {
+    const [bookList, setBookList] = useState([]);
     useEffect(() => {
-        axios
-            .get("http://localhost:3000/books")
-            .then((response) => setBooks(response.data))
-            .catch((error) => console.log(error));
-    }, []);
+        const fetchBook = async () => {
+            let result = await bookService.findAll();
+            setBookList(result);
+        };
+        fetchBook()
+    },[]);
 
-    const handleDelete = (id) => {
-        axios
-            .delete(`http://localhost:3000/books/${id}`)
-            .then(() => {
-                alert("Delete successfully");
-                setBooks(books.filter((book) => book.id !== id));
-            })
-            .catch((error) => console.log(error));
+    const handleDelete = async (id) => {
+        await bookService.deleteBook(id);
+        let result = await bookService.findAll()
+        setBookList(result);
     };
 
-    return (
+    return(
         <div>
-            <h1>Library</h1>
-            <Link to="/add">Add a new Book</Link>
-            <table>
-                <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Quantity</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {books.map((book) => (
-                    <tr key={book.id}>
-                        <td>{book.title}</td>
-                        <td>{book.quantity}</td>
-                        <td>
-                            <Link to={`/edit/${book.id}`}>Edit</Link>
-                            <button onClick={() => handleDelete(book.id)}>Delete</button>
-                        </td>
+            <div>
+                <h1>Book Management</h1>
+                <Link className="btn btn-primary" to="/addNewBook">
+                    Add new Book
+                </Link>
+            </div>
+
+            <div>
+                <table className="table table-border table-striped">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Quantity</th>
+                        <th colSpan={2}>Actions</th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {bookList.map((book, index) => (
+                        <tr key={index}>
+                            <th>{book.title}</th>
+                            <th>{book.quantity}</th>
+                            <th>
+                                <Link
+                                    className="btn btn-primary"
+                                    to={`/editBook/${book.id}`}
+                                >
+                                    Edit
+                                </Link>
+                            </th>
+                            <th>
+                                <a
+                                    className="btn btn-danger"
+                                    onClick={() => handleDelete(book.id)}
+                                >
+                                    Delete
+                                </a>
+                            </th>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
-};
+}
 
 export default BookList;

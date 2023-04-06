@@ -1,57 +1,100 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate} from "react-router";
-import axios from "axios";
+import React from 'react'
+import { Field, Form, Formik } from 'formik'
+import { Audio } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import * as TodoService from './service/TodoService'
+import { useNavigate } from 'react-router-dom';
 
-function TodoList() {
-    const [todo,setTodo] = useState([]);
-    const navigate = useNavigate();
+export default function TodoList() {
+    let navigate = useNavigate()
 
-    useEffect(() =>{
-        const fetchApi = async () => {
-            try {
-                const result = await axios.get('http://localhost:4000/todoList')
-                setTodo(result.data);
-            }catch (e) {
-                console.log(e);
-            }
-        };
-        fetchApi()
-    }, []);
-    const handleUpdate = (arrIndex) => {
-        navigate(`/update/${arrIndex}`);
+    const [todo, setTodo] = useState([])
 
-    };
+    useEffect(() => {
+
+        const listTodo = async () => {
+            const result = await TodoService.findAll()
+            setTodo(result)
+        }
+        listTodo()
+    }, [])
+
     return (
         <>
-        <div>
-            <h1>Todo List</h1>
-            <table className={'table'}>
+
+            <Formik
+                initialValues={{ name: '' }}
+
+                onSubmit={(values, { setSubmitting }) => {
+                    setTimeout(() => {
+
+                        const  createTodo = async () => {
+                            await TodoService.save(values)
+                            setSubmitting(false)
+                            toast("thêm mới thành công")
+                            navigate('/')
+
+                        }
+                        createTodo()
+
+                    }, 500)
+
+
+                }}
+            >
+
+                {({ isSubmitting }) => (
+
+                    <Form>
+                        <h1>To do List</h1>
+                        <div>
+                            <Field type='text' name="name" className="form-control" />
+                        </div>
+                        {
+                            isSubmitting ?
+                                <Audio
+                                    height="80"
+                                    width="80"
+                                    radius="9"
+                                    color="green"
+                                    ariaLabel="loading"
+                                    wrapperStyle
+                                    wrapperClass
+                                />
+                                : <button type="submit">  Submit  </button>
+
+                        }
+                    </Form>
+                )
+                }
+
+            </Formik>
+            <ToastContainer />
+
+
+            <table>
                 <thead>
                 <tr>
-                    <th scope={'col'}>Name</th>
+                    <th>*</th>
                 </tr>
                 </thead>
                 <tbody>
-                <td>
                 {
-                    todo.map((value,index ) =>(
+                    todo.map((todoList, index) => (
                         <tr key={index}>
-                            <td>{value.name}</td>
+                            <td>{todoList.name}</td>
                         </tr>
+
                     ))
+
+
                 }
-                </td>
-                <td>
-                    <button type={"button"} className={'btn btn-danger'} onClick={() => handleUpdate(index)}>
-                        Submit
-                    </button>
-                </td>
+
                 </tbody>
-
             </table>
-        </div>
-         </>
-    );
+        </>
+    )
 }
-
-export default TodoList;

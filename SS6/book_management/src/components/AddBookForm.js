@@ -1,46 +1,46 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import { ErrorMessage, Field, Formik, Form } from "formik";
+import * as bookService from "../service/bookService";
 
-const AddBookForm = () => {
-    const [title, setTitle] = useState("");
-    const [quantity, setQuantity] = useState("");
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        axios
-            .post("http://localhost:3000/books", { title, quantity })
-            .then(() => {
-                alert("Create successfully");
-                setTitle("");
-                setQuantity("");
-            })
-            .catch((error) => console.log(error));
-    };
-
+function AddBookForm() {
     return (
         <div>
-            <h2>Add a new Book</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Title:</label>
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={(event) => setTitle(event.target.value)}
-                    />
-                </div>
-                <div>
-                    <label>Quantity:</label>
-                    <input
-                        type="number"
-                        value={quantity}
-                        onChange={(event) => setQuantity(event.target.value)}
-                    />
-                </div>
-                <button type="submit">Create</button>
-            </form>
+            <Formik
+                initialValues={{ title: "", quantity: "" }}
+                onSubmit={(values, { resetForm }) => {
+                    const create = async () => {
+                        await bookService.save(values);
+                        resetForm();
+
+                    };
+                    create();
+                }}
+            >
+                <Form>
+                    <h1>Add a new Book</h1>
+                    <div>
+                        <label htmlFor="title">Title</label>
+                        <Field
+                            type="text"
+                            className="form-control"
+                            id="title"
+                            name="title"
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="quantity">Quantity</label>
+                        <Field
+                            type="text"
+                            className="form-control"
+                            id="quantity"
+                            name="quantity"
+                        />
+                    </div>
+                    <button type="submit">Submit</button>
+                </Form>
+            </Formik>
         </div>
     );
-};
+}
 
 export default AddBookForm;
