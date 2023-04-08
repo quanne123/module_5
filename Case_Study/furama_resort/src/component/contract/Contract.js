@@ -1,5 +1,5 @@
 import React from 'react';
-import {customerList} from "../customer/CustomerData";
+import {customerList} from "../../data/CustomerData.json";
 import {facility} from "../facility/FacilityList";
 import Footer from "../Footer";
 import Header from "../Header";

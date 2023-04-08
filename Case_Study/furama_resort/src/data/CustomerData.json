@@ -1,0 +1,51 @@
+{
+  "customerList": [
+    {
+      "id": 1,
+      "name": "Quân",
+      "dateOfBirth": "1998/10/12",
+      "gender": "nam",
+      "identityNumb": "00956",
+      "phoneNumb": "09012345",
+      "email": "Quan@gmail.com",
+      "typeId": 1,
+      "address": "abc"
+    },
+    {
+      "id": 2,
+      "name": "Quân",
+      "dateOfBirth": "1998/10/12",
+      "gender": "nam",
+      "identityNumb": "00956",
+      "phoneNumb": "09012345",
+      "email": "Quan@gmail.com",
+      "typeId": 1,
+      "address": "abc"
+    },
+    {
+      "id": 3,
+      "name": "Quân",
+      "dateOfBirth": "1998/10/12",
+      "gender": "nam",
+      "identityNumb": "00956",
+      "phoneNumb": "09012345",
+      "email": "Quan@gmail.com",
+      "typeId": 1,
+      "address": "abc"
+    }
+  ],
+  "customerTypes": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Gold"
+    },
+    {
+      "id": 3,
+      "name": "Platinum"
+    }
+  ]
+}

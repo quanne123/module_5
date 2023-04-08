@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../Header';
-import  {customerList}  from './CustomerData';
+import  {customerList}  from '../../data/CustomerData.json';
 import {customerType} from "./CustomerType";
 function Customer() {
     return (

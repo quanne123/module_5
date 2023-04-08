@@ -1,161 +1,216 @@
-import React, {Component} from 'react';
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import * as Yup from "yup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {InfinitySpin} from "react-loader-spinner";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import * as CustomerTypeService from "../service/customer/CustomerTypeService";
+import * as CustomerService from "../service/customer/CustomerService";
+function CustomerEditForm() {
+    let navigate = useNavigate();
+    const param = useParams();
+    const [customer, setCustomer] = useState();
+    const [customerType, setCustomerType] = useState([])
+    useEffect(() => {
+        const getCustomerDetail = async () => {
+            const CustomerDetail = await CustomerService.findById(param.id);
+            setCustomer(CustomerDetail.data);
+        };
+        getCustomerDetail();
+    }, [param.id]);
 
-class EditCustomer extends Component {
-    render() {
+    useEffect(() => {
+        getCustomerTypeList()
+    }, [])
+
+    const getCustomerTypeList = async () => {
+        const customerTypeData = await CustomerTypeService.findAll()
+        setCustomerType(customerTypeData.data)
+    }
+
+    if (!customer) {
         return (
-            <div>
-                <div className="modal" tabIndex="-1" id="editModal">
-                    <div className="modal-dialog modal-xl">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">
-                                    Sửa thông tin khách hàng <i className="fa fa-user"></i>
-                                </h5>
-                                <button
-                                    type="button"
-                                    className="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                ></button>
-                            </div>
-                            <div className="modal-body">
-                                <form>
-                                    <div className="mb-3 row">
-                                        <label className="col-sm-2 col-form-label">Họ Tên:</label>
-                                        <div className="col-sm-10">
-                                            <input
-                                                type="hidden"
-                                                id="idEdit"
-                                            />
-                                            <input
-                                                type="text"
-                                                id="nameEdit"
-                                                className="form-control"
-                                                name="name"
-                                            />
-                                        </div>
-                                    </div>
-                                    <input
-                                        type="hidden"
-                                        name="validate"
-                                        value="edit"
-                                    />
-                                    <input
-                                        type="hidden"
-                                        name="modal"
-                                        value="edit"
-                                    />
-                                    <div className="mb-3 row">
-                                        <label className="col-sm-2 col-form-label">
-                                            Ngày Sinh
-                                        </label>
-                                        <div className="col-sm-10">
-                                            <input
-                                                type="date"
-                                                id="dateOfBirthEdit"
-                                                className="form-control"
-                                                name="birthday"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="mb-3 row">
-                                        <label className="col-sm-2 col-form-label">
-                                            Giới Tính
-                                        </label>
-                                        <div className="col-sm-10">
-                                            <input
-                                                type="radio"
-                                                id="genderS1"
-                                                checked
-                                                name="gender"
-                                                className="form-check-input"
-                                                value="true"
-                                            />
-                                            <label
-                                                htmlFor="genderS1"
-                                                className="form-check-label"
-                                            >
-                                                Nam
-                                            </label>
-                                            <input
-                                                type="radio"
-                                                id="genderS2"
-                                                style={{ marginLeft: "25px" }}
-                                                name="gender"
-                                                className="form-check-input"
-                                                value="false"
-                                            />
-                                            <label
-                                                htmlFor="genderS2"
-                                                className="form-check-label"
-                                            >
-                                                Nữ
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div className="mb-3 row">
-                                        <label className="col-sm-2 col-form-label">
-                                            Số CMND
-                                        </label>
-                                        <div className="col-sm-10">
-                                            <input
-                                                type="number"
-                                                id="iDCardEdit"
-                                                className="form-control"
-                                                name="iDCard"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="mb-3 row">
-                                        <label className="col-sm-2 col-form-label">
-                                            Số Điện Thoại
-                                        </label>
-                                        <div className="col-sm-10">
-                                            <input
-                                                id="phoneNumberEdit"
-                                                type="number"
-                                                className="form-control"
-                                                name="phoneNumber"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="mb-3 row">
-                                                <label className="col-sm-2 col-form-label">Email </label>
-                                                <div className="col-sm-10">
-                                                    <input type="email" id="emailEdit" className="form-control"
-                                                           name="email"/>
-                                                </div>
-                                            </div>
-                                            <div className="mb-3 row">
-                                                <label className="col-sm-2 col-form-label">Địa Chỉ </label>
-                                                <div className="col-sm-10">
-                                                    <input type="text" id="addressEdit" className="form-control"
-                                                           name="address"/>
-                                                </div>
-                                            </div>
-                                            <div className="mb-3 row">
-                                                <label className="col-sm-2 col-form-label">Kiểu Khách</label>
-                                                <div className="col-sm-10">
-                                                    <select id="typeEdit" className="form-select" name="customerType">
-                                                        <option></option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div className="modal-footer">
-                                                <button type="button" className="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Hủy
-                                                </button>
-                                                <button type="submit" className="btn btn-primary">Xác Nhận</button>
-                                            </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <InfinitySpin
+                width='200'
+                color="#4fa94d"
+            />
         );
     }
+
+    return (
+        <>
+            <Formik
+                initialValues={{
+                    id: customer?.id,
+                    name: customer?.name,
+                    dateOfBirth: customer?.dateOfBirth,
+                    gender: customer?.gender.toString(),
+                    identityNumb: customer?.identityNumb,
+                    phoneNumb: customer?.phoneNumb,
+                    email: customer?.email,
+                    typeId: customer?.typeId,
+                    address: customer?.address,
+                }}
+                validationSchema={Yup.object({
+                    name: Yup.string()
+                        .required("Trường này bắt buộc nhập")
+                        .matches(
+                            "^[A-Z][a-z]+(\\s[A-Z][a-z]+)*$",
+                            "Tên không được chứa số. Và các kí tự đầu tiên của mỗi từ phải viết hoa"
+                        ),
+                    email: Yup.string()
+                        .required("Trường này bắt buộc nhập")
+                        .email("Sai format email"),
+                    phoneNumb: Yup.string()
+                        .required("Trường này bắt buộc nhập")
+                        .matches(
+                            "^(090|091|\\(84\\)\\+90|\\(84\\)\\+91)[\\d]{7}$",
+                            "Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx."
+                        ),
+                    identityNumb: Yup.string()
+                        .required("Trường này bắt buộc nhập")
+                        .matches(
+                            "^\\d{9}$",
+                            "Số CMND phải đúng định dạng XXXXXXXXX hoặc XXXXXXXXXXXX"
+                        ),
+                })}
+                onSubmit={(values, { setSubmitting }) => {
+                    try {
+                        if (typeof values.gender === "string" && typeof values.typeId === "string") {
+                            values.gender = parseInt(values.gender);
+                            values.typeId = parseInt(values.typeId);
+                        }
+                        CustomerService.editCustomer(values);
+                        setSubmitting(false);
+                        toast("Sửa thông tin khách hàng thành công");
+                        navigate("/customer");
+                    } catch (error) {
+                        toast("Sửa thông tin khách hàng thất bại");
+                        setSubmitting(false);
+                    }
+                }}
+            >
+                {({ isSubmitting }) => (
+                    <Form>
+                        <div className="testbox" style={{ marginTop: "70px" }}>
+                            <div className="">
+                                <h1>Thêm mới Khách hàng</h1>
+                                <div className="item">
+                                    <label htmlFor="name">Họ tên</label>
+                                    <Field type="text" name="name" id="name" />
+                                    <ErrorMessage
+                                        name="name"
+                                        component="div"
+                                        className="text-danger"
+                                    />
+                                </div>
+                                <div className="item">
+                                    <label htmlFor="dateOfBirth">Ngày sinh</label>
+                                    <Field
+                                        type="date"
+                                        name="dateOfBirth"
+                                        id="dateOfBirth"
+                                        required
+                                    />
+                                    <ErrorMessage
+                                        name="dateOfBirth"
+                                        component="div"
+                                        className="text-danger"
+                                    />
+                                </div>
+                                <div className="item">
+                                    <label htmlFor="gender">Giới tính</label>
+                                    <div className="col-md-12">
+                                        <Field
+                                            type="radio"
+                                            className="gender"
+                                            id="men"
+                                            name="gender"
+                                            value="0"
+                                            check={customer.gender === '0'}
+                                        />
+                                        <label htmlFor="men">Nam</label>
+                                        <Field
+                                            type="radio"
+                                            className="gender"
+                                            id="women"
+                                            name="gender"
+                                            value="1"
+                                            check={customer.gender === '1'}
+                                        />
+                                        <label htmlFor="women">Nữ</label>
+                                    </div>
+                                </div>
+                                <div className="item">
+                                    <label htmlFor="identityNumb">Số CMND</label>
+                                    <Field type="text" name="identityNumb" id="identityNumb" />
+                                    <ErrorMessage
+                                        name="identityNumb"
+                                        component="div"
+                                        className="text-danger"
+                                    />
+                                </div>
+                                <div className="item">
+                                    <label htmlFor="phoneNumb">Số Điện Thoại</label>
+                                    <Field type="text" name="phoneNumb" id="phoneNumb" />
+                                    <ErrorMessage
+                                        name="phoneNumb"
+                                        component="div"
+                                        className="text-danger"
+                                    />
+                                </div>
+                                <div className="item">
+                                    <label htmlFor="email">Email</label>
+                                    <Field type="email" name="email" id="email" />
+                                    <ErrorMessage
+                                        name="email"
+                                        component="div"
+                                        className="text-danger"
+                                    />
+                                </div>
+                                <div className="item">
+                                    <label htmlFor="typeId">Loại khách</label>
+                                    <Field as="select" name="typeId">
+                                        {customerType.map((type) => (
+                                            <option key={type.id} value={type.id}>
+                                                {type.name}
+                                            </option>
+                                        ))}
+                                    </Field>
+                                </div>
+                                <div className="item">
+                                    <label htmlFor="address">Địa chỉ</label>
+                                    <Field type="text" name="address" id="address" />
+                                </div>
+                                <div className="btn-block">
+                                    {isSubmitting ? (
+                                        <InfinitySpin
+                                            width='200'
+                                            color="#4fa94d"
+                                        />
+                                    ) : (
+                                        <>
+                                            <button
+                                                type="submit"
+                                                style={{ marginRight: "10px" }}
+                                                className="btn btn-success"
+                                            >
+                                                Sửa
+                                            </button>
+                                            <Link to="/customer" className="btn btn-primary">
+                                                Thoát
+                                            </Link>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </Form>
+                )}
+            </Formik>
+        </>
+    );
 }
 
-export default EditCustomer;
+export default CustomerEditForm;
