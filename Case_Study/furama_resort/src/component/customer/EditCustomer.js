@@ -5,8 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import {InfinitySpin} from "react-loader-spinner";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import * as CustomerTypeService from "../service/customer/CustomerTypeService";
-import * as CustomerService from "../service/customer/CustomerService";
+import * as CustomerTypeService from "../../service/customer/CustomerTypeService";
+import * as CustomerService from "../../service/customer/CustomerService";
 function CustomerEditForm() {
     let navigate = useNavigate();
     const param = useParams();

@@ -1,6 +1,6 @@
 import React from 'react';
 import {customerList} from "../../data/CustomerData.json";
-import {facility} from "../facility/FacilityList";
+import {facility} from "../facility/FacilityType";
 import Footer from "../Footer";
 import Header from "../Header";
 import {contractList} from "./ContractData";

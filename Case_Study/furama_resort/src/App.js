@@ -4,7 +4,7 @@
 // import FormCreateCustomer from "./component/FormCreateCustomer";
 
 import Home from "./component/Home";
-import Facility from "./component/Facility";
+import FacilityList from "./component/facility/FacilityList";
 import Customer from "./component/customer/Customer";
 import React from "react";
 import Contract from "./component/contract/Contract";
