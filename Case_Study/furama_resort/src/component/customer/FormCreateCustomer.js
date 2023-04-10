@@ -11,7 +11,7 @@ import * as CustomerService from "../../service/customer/CustomerService";
 function CustomerAddForm() {
     let navigate = useNavigate();
 
-    const [customerType, setCustomerType] = useState([]);
+    const [customerType, setCustomerType] = useState();
     const [customerAdd, setCustomerAdd] = useState([]);
 
     const getCustomerTypeList = async () => {
@@ -22,7 +22,9 @@ function CustomerAddForm() {
     useEffect(() => {
         getCustomerTypeList();
     }, []);
-
+if (!customerType){
+    return null;
+}
     return (
         <>
             <Formik
@@ -33,32 +35,32 @@ function CustomerAddForm() {
                     identityNumb: "",
                     phoneNumb: "",
                     email: "",
-                    typeId: customerType[0]?.name,
+                    typeId: customerType[0]?.id,
                     address: "",
                 }}
-                validationSchema={Yup.object({
-                    name: Yup.string()
-                        .required("Trường này bắt buộc nhập")
-                        .matches(
-                            "^[A-Z][a-z]+(\\s[A-Z][a-z]+)*$",
-                            "Tên không được chứa số. Và các kí tự đầu tiên của mỗi từ phải viết hoa"
-                        ),
-                    email: Yup.string()
-                        .required("Trường này bắt buộc nhập")
-                        .email("Sai format email"),
-                    phoneNumb: Yup.string()
-                        .required("Trường này bắt buộc nhập")
-                        .matches(
-                            "^(090|091|\\(84\\)\\+90|\\(84\\)\\+91)[\\d]{7}$",
-                            "Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx."
-                        ),
-                    identityNumb: Yup.string()
-                        .required("Trường này bắt buộc nhập")
-                        .matches(
-                            "^\\d{9}$",
-                            "Số CMND phải đúng định dạng XXXXXXXXX hoặc XXXXXXXXXXXX"
-                        ),
-                })}
+                // validationSchema={Yup.object({
+                //     name: Yup.string()
+                //         .required("Trường này bắt buộc nhập")
+                //         .matches(
+                //             "^[A-Z][a-z]+(\\s[A-Z][a-z]+)*$",
+                //             "Tên không được chứa số. Và các kí tự đầu tiên của mỗi từ phải viết hoa"
+                //         ),
+                //     email: Yup.string()
+                //         .required("Trường này bắt buộc nhập")
+                //         .email("Sai format email"),
+                //     phoneNumb: Yup.string()
+                //         .required("Trường này bắt buộc nhập")
+                //         .matches(
+                //             "^(090|091|\\(84\\)\\+90|\\(84\\)\\+91)[\\d]{7}$",
+                //             "Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx."
+                //         ),
+                //     identityNumb: Yup.string()
+                //         .required("Trường này bắt buộc nhập")
+                //         .matches(
+                //             "^\\d{9}$",
+                //             "Số CMND phải đúng định dạng XXXXXXXXX hoặc XXXXXXXXXXXX"
+                //         ),
+                // })}
                 onSubmit={(values, {setSubmitting}) => {
 
                     const createCustomer = async () => {
@@ -154,7 +156,7 @@ function CustomerAddForm() {
                                 </div>
                                 <div className="item">
                                     <label htmlFor="typeId">Loại khách</label>
-                                    <Field component="select" name="typeId">
+                                    <Field as="select" name="typeId">
                                         {customerType.map((type) => (
                                             <option key={type.id} value={type.id}>
                                                 {type.name}

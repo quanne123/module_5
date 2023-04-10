@@ -120,6 +120,79 @@
       "typeId": "2",
       "address": "Đà Nẵng",
       "id": 11
+    },
+    {
+      "name": "Tlinh",
+      "dateOfBirth": "2023-03-28",
+      "gender": "0",
+      "identityNumb": "123123121",
+      "phoneNumb": "0901234563",
+      "email": "quandeptrai020901@gmail.com",
+      "address": "Đà Nẵng",
+      "id": 12
+    },
+    {
+      "name": "Quan",
+      "dateOfBirth": "2023-03-29",
+      "gender": "0",
+      "identityNumb": "123123123",
+      "phoneNumb": "0905054623",
+      "email": "quandeptrai020901@gmail.com",
+      "address": "Đà Nẵng",
+      "id": 13
+    },
+    {
+      "name": "Tlinh",
+      "dateOfBirth": "2023-04-01",
+      "gender": "0",
+      "identityNumb": "123123123",
+      "phoneNumb": "0901234563",
+      "email": "quandeptrai020901@gmail.com",
+      "address": "Đà Nẵng",
+      "id": 14
+    },
+    {
+      "name": "Lionel Messi",
+      "dateOfBirth": "2023-03-29",
+      "gender": "0",
+      "identityNumb": "014785256",
+      "phoneNumb": "0901234563",
+      "email": "quandeptrai020901@gmail.com",
+      "address": "Đà Nẵng",
+      "id": 15
+    },
+    {
+      "name": "Tlinh",
+      "dateOfBirth": "2023-04-06",
+      "gender": "0",
+      "identityNumb": "014785212",
+      "phoneNumb": "0901234563",
+      "email": "quandeptrai020901@gmail.com",
+      "typeId": "2",
+      "address": "Đà Nẵng",
+      "id": 16
+    },
+    {
+      "name": "Tling",
+      "dateOfBirth": "2023-04-12",
+      "gender": "0",
+      "identityNumb": "",
+      "phoneNumb": "0901234563",
+      "email": "quandeptrai020901@gmail.com",
+      "typeId": "Diamond",
+      "address": "Đà Nẵng",
+      "id": 17
+    },
+    {
+      "name": "Lionel Messi",
+      "dateOfBirth": "2023-03-29",
+      "gender": "0",
+      "identityNumb": "",
+      "phoneNumb": "",
+      "email": "",
+      "typeId": 1,
+      "address": "",
+      "id": 18
     }
   ],
   "customerTypes": [
@@ -134,6 +207,104 @@
     {
       "id": 3,
       "name": "Platinum"
+    }
+  ],
+  "facility": [
+    {
+      "id": 1,
+      "facilityImg": "img/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
+      "facilityName": "PHÒNG SUITE HƯỚNG BIỂN",
+      "facilityArea": "Diện tích phòng: 85.8 m2",
+      "facilityRentalCost": "20000",
+      "facilityMaxPeople": "5",
+      "facilityRentalType": "Ngày",
+      "facilityTypeId": 1,
+      "facilityStandard": "vip",
+      "facilityOtherAmenities": "Thuê xe máy / xe đạp",
+      "facilityPoolArea": 12,
+      "facilityNumbOfFloor": 3,
+      "facilityFreeAmenities": null,
+      "facilityAmenities": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 1,
+      "facilityImg": "img/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
+      "facilityName": "PHÒNG SUITE HƯỚNG Cảng",
+      "facilityArea": "Diện tích phòng: 85.8 m2",
+      "facilityRentalCost": "20000",
+      "facilityMaxPeople": "5",
+      "facilityRentalType": "Ngày",
+      "facilityTypeId": 1,
+      "facilityStandard": "vip",
+      "facilityOtherAmenities": "Thuê xe máy / xe đạp",
+      "facilityPoolArea": 12,
+      "facilityNumbOfFloor": 3,
+      "facilityFreeAmenities": null,
+      "facilityAmenities": [
+        1,
+        2
+      ]
+    }
+  ],
+  "facilityType" : [
+    {
+      "id" : 1,
+      "name" : "VILLA"
+    },
+    {
+      "id" : 2,
+      "name" : "ROOM"
+    },
+    {
+      "id" : 3,
+      "name" : "HOUSE"
+    }
+  ],
+  "amenities" :[
+    {
+      "id" : 1,
+      "name" : "massage",
+      "unit" : "vnd",
+      "price" : "12000"
+    },
+    {
+      "id" : 2,
+      "name" : "massage",
+      "unit" : "vnd",
+      "price" : "12000"
+    },
+    {
+      "id" : 3,
+      "name" : "massage",
+      "unit" : "vnd",
+      "price" : "12000"
+    },
+    {
+      "id" : 4,
+      "name" : "massage",
+      "unit" : "vnd",
+      "price" : "12000"
+    },
+    {
+      "id" : 5,
+      "name" : "massage",
+      "unit" : "vnd",
+      "price" : "12000"
+    }
+  ],
+  "contract" : [
+    {
+      "id" : 1,
+      "contractCode":"SV-1234",
+      "customerInfo":1,
+      "facilityInfo":2,
+      "dateStart":"10-12-2022",
+      "dateEnd":"13-01-2023",
+      "price":"2000",
+      "totalPrice":"10000"
     }
   ]
 }

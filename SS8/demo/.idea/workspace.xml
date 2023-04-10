@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6ad73b2f-252f-455e-a304-ad66b9e8e9b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Case_Study/furama_resort/src/service/facility/FacilityService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/demo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case_Study/furama_resort/src/component/customer/FormCreateCustomer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Case_Study/furama_resort/src/component/customer/FormCreateCustomer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case_Study/furama_resort/src/component/facility/FacilityList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Case_Study/furama_resort/src/component/facility/FacilityList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case_Study/furama_resort/src/data/CustomerData.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Case_Study/furama_resort/src/data/CustomerData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS2/information/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS2/information/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS3/todo_list/src/components/TodoApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS3/todo_list/src/components/TodoApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS6/book_management/src/service/bookService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS6/book_management/src/service/bookService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS6/book_management_2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS6/book_management_2/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS6/book_management_2/src/components/BookList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS6/book_management_2/src/components/BookList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS6/book_management_2/src/data/bookdata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS6/book_management_2/src/data/bookdata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS6/book_management_2/src/service/BookService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS6/book_management_2/src/service/BookService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS7/practice_exam/src/components/AddNewSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS7/practice_exam/src/components/AddNewSong.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS7/practice_exam/src/components/EditSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS7/practice_exam/src/components/EditSong.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS7/practice_exam/src/components/SongList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS7/practice_exam/src/components/SongList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS7/practice_exam/src/data/song.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS7/practice_exam/src/data/song.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SS7/practice_exam/src/service/SongService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../SS7/practice_exam/src/service/SongService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo_props/src/component/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../demo_props/src/component/Welcome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../information/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../information/.idea/information.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../information/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../information/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../information/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../reactJS/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../reactJS/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../reactJS/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../reactJS/src/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2OEjqPbG7OAcaAXkbiL1cTiAUcO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ad73b2f-252f-455e-a304-ad66b9e8e9b4" name="Default Changelist" comment="" />
+      <created>1681132826064</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681132826064</updated>
+      <workItem from="1681132830834" duration="234000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+</project>
