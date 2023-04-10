@@ -25,8 +25,8 @@ function CustomerEditForm() {
     }, [])
 
     const getCustomerTypeList = async () => {
-        const customerTypeData = await CustomerTypeService.findAll()
-        setCustomerType(customerTypeData.data)
+        const customerTypeData = await CustomerService.findAllType()
+        setCustomerType(customerTypeData)
     }
 
     if (!customer) {
@@ -95,7 +95,7 @@ function CustomerEditForm() {
                     <Form>
                         <div className="testbox" style={{ marginTop: "70px" }}>
                             <div className="">
-                                <h1>Thêm mới Khách hàng</h1>
+                                <h1>Chỉnh Sửa Khách hàng</h1>
                                 <div className="item">
                                     <label htmlFor="name">Họ tên</label>
                                     <Field type="text" name="name" id="name" />

@@ -1,15 +1,15 @@
 {
-  "customerList": [
+  "customer": [
     {
       "id": 1,
-      "name": "Quân",
-      "dateOfBirth": "1998/10/12",
-      "gender": "nam",
-      "identityNumb": "00956",
-      "phoneNumb": "09012345",
+      "name": "Tling",
+      "dateOfBirth": "2023-04-04",
+      "gender": 0,
+      "identityNumb": "123456789",
+      "phoneNumb": "0901234563",
       "email": "Quan@gmail.com",
-      "typeId": 1,
-      "address": "abc"
+      "typeId": 2,
+      "address": "Đà Nẵng"
     },
     {
       "id": 2,
@@ -32,6 +32,94 @@
       "email": "Quan@gmail.com",
       "typeId": 1,
       "address": "abc"
+    },
+    {
+      "name": "Tran",
+      "dateOfBirth": "2023-03-27",
+      "gender": "0",
+      "identityNumb": "123456789",
+      "phoneNumb": "0905156235",
+      "email": "quandeptrai020901@gmail.com",
+      "typeId": "",
+      "address": "Cù Chính Lan ",
+      "id": 4
+    },
+    {
+      "name": "Mck",
+      "dateOfBirth": "2023-04-06",
+      "gender": "1",
+      "identityNumb": "123459546",
+      "phoneNumb": "0905123456",
+      "email": "quandeptrai020901@gmail.com",
+      "typeId": 1,
+      "address": "Cù Chính Lan",
+      "id": 5
+    },
+    {
+      "name": "Quan",
+      "dateOfBirth": "2023-03-30",
+      "gender": "0",
+      "identityNumb": "123789456",
+      "phoneNumb": "0905054623",
+      "email": "quandeptrai020901@gmail.com",
+      "typeId": 1,
+      "address": "Đà Nẵng ",
+      "id": 6
+    },
+    {
+      "name": "Quan",
+      "dateOfBirth": "2023-03-29",
+      "gender": "0",
+      "identityNumb": "147852369",
+      "phoneNumb": "0905054623",
+      "email": "quandeptrai020901@gmail.com",
+      "typeId": "3",
+      "address": "Đà Nẵng",
+      "id": 7
+    },
+    {
+      "name": "Quan",
+      "dateOfBirth": "2023-03-30",
+      "gender": "0",
+      "identityNumb": "123132132",
+      "phoneNumb": "0905054623",
+      "email": "quandeptrai020901@gmail.com",
+      "typeId": "2",
+      "address": "Đà Nẵng",
+      "id": 8
+    },
+    {
+      "name": "Quan",
+      "dateOfBirth": "2023-04-03",
+      "gender": "0",
+      "identityNumb": "123123123",
+      "phoneNumb": "0905054623",
+      "email": "quandeptrai020901@gmail.com",
+      "typeId": "2",
+      "address": "Đà Nẵng",
+      "id": 9
+    },
+    {
+      "name": "Quan",
+      "dateOfBirth": "2023-03-27",
+      "gender": "1",
+      "identityNumb": "123123123",
+      "phoneNumb": "0905054623",
+      "email": "quandeptrai020901@gmail.com",
+      "typeId": "3",
+      "address": "Đà Nẵng",
+      "id": 10
+    },
+    {
+      "name": "Tling",
+      "dateOfBirth": "2023-04-04",
+      "gender": "0",
+      "identityNumb": "123456789",
+      "phoneNumb": "0901234563",
+      "email": "quandeptrai020901@gmail.com",
+      "typeId": "2",
+      "address": "Đà Nẵng",
+      "id": 11
     }
   ],
   "customerTypes": [

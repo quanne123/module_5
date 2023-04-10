@@ -1,11 +1,10 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {InfinitySpin, Oval} from "react-loader-spinner";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import * as CustomerTypeService from "../../service/customer/CustomerTypeService";
+import {Link, useNavigate} from "react-router-dom";
+import React, {useEffect, useState} from "react";
 import * as CustomerService from "../../service/customer/CustomerService";
 
 
@@ -13,10 +12,11 @@ function CustomerAddForm() {
     let navigate = useNavigate();
 
     const [customerType, setCustomerType] = useState([]);
+    const [customerAdd, setCustomerAdd] = useState([]);
 
     const getCustomerTypeList = async () => {
-        const customerTypeData = await CustomerTypeService.findAll();
-        setCustomerType(customerTypeData.data);
+        const customerTypeData = await CustomerService.findAllType();
+        setCustomerType(customerTypeData);
     };
 
     useEffect(() => {
@@ -33,7 +33,7 @@ function CustomerAddForm() {
                     identityNumb: "",
                     phoneNumb: "",
                     email: "",
-                    typeId: 1,
+                    typeId: customerType[0]?.name,
                     address: "",
                 }}
                 validationSchema={Yup.object({
@@ -59,29 +59,31 @@ function CustomerAddForm() {
                             "Số CMND phải đúng định dạng XXXXXXXXX hoặc XXXXXXXXXXXX"
                         ),
                 })}
-                onSubmit={(values, { setSubmitting }) => {
-                    try {
-                        if (typeof values.gender === "string") {
-                            values.gender = parseInt(values.gender);
+                onSubmit={(values, {setSubmitting}) => {
+
+                    const createCustomer = async () => {
+                        console.log(values)
+                        try {
+                            await CustomerService.save(values);
+                            setCustomerAdd(values)
+                            navigate("/")
+                        } catch (error) {
+                            console.log(error)
                         }
-                        CustomerService.save(values);
                         setSubmitting(false);
-                        toast("Thêm mới thành công");
-                        navigate("/customer");
-                    } catch (error) {
-                        toast("Thêm mới thất bại");
-                        setSubmitting(false);
-                    }
+                    };
+                    createCustomer()
+
                 }}
             >
-                {({ isSubmitting }) => (
+                {({isSubmitting}) => (
                     <Form>
-                        <div className="testbox" style={{ marginTop: "70px" }}>
+                        <div className="testbox" style={{marginTop: "70px"}}>
                             <div className="">
                                 <h1>Thêm mới Khách hàng</h1>
                                 <div className="item">
                                     <label htmlFor="name">Họ tên</label>
-                                    <Field type="text" name="name" id="name" />
+                                    <Field type="text" name="name" id="name"/>
                                     <ErrorMessage
                                         name="name"
                                         component="div"
@@ -125,7 +127,7 @@ function CustomerAddForm() {
                                 </div>
                                 <div className="item">
                                     <label htmlFor="identityNumb">Số CMND</label>
-                                    <Field type="text" name="identityNumb" id="identityNumb" />
+                                    <Field type="text" name="identityNumb" id="identityNumb"/>
                                     <ErrorMessage
                                         name="identityNumb"
                                         component="div"
@@ -134,7 +136,7 @@ function CustomerAddForm() {
                                 </div>
                                 <div className="item">
                                     <label htmlFor="phoneNumb">Số Điện Thoại</label>
-                                    <Field type="text" name="phoneNumb" id="phoneNumb" />
+                                    <Field type="text" name="phoneNumb" id="phoneNumb"/>
                                     <ErrorMessage
                                         name="phoneNumb"
                                         component="div"
@@ -143,7 +145,7 @@ function CustomerAddForm() {
                                 </div>
                                 <div className="item">
                                     <label htmlFor="email">Email</label>
-                                    <Field type="email" name="email" id="email" />
+                                    <Field type="email" name="email" id="email"/>
                                     <ErrorMessage
                                         name="email"
                                         component="div"
@@ -152,7 +154,7 @@ function CustomerAddForm() {
                                 </div>
                                 <div className="item">
                                     <label htmlFor="typeId">Loại khách</label>
-                                    <Field as="select" name="typeId">
+                                    <Field component="select" name="typeId">
                                         {customerType.map((type) => (
                                             <option key={type.id} value={type.id}>
                                                 {type.name}
@@ -162,7 +164,7 @@ function CustomerAddForm() {
                                 </div>
                                 <div className="item">
                                     <label htmlFor="address">Địa chỉ</label>
-                                    <Field type="text" name="address" id="address" />
+                                    <Field type="text" name="address" id="address"/>
                                 </div>
                                 <div className="btn-block">
                                     {isSubmitting ? (
@@ -174,12 +176,12 @@ function CustomerAddForm() {
                                         <>
                                             <button
                                                 type="submit"
-                                                style={{ marginRight: "10px" }}
+                                                style={{marginRight: "10px"}}
                                                 className="btn btn-success"
                                             >
                                                 Thêm
                                             </button>
-                                            <Link to="/customer" className="btn btn-primary">
+                                            <Link to="/" className="btn btn-primary">
                                                 Thoát
                                             </Link>
                                         </>

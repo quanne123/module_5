@@ -1,6 +1,7 @@
 import axios from "axios";
+const URLCUSTYPE = `http://localhost:8080/customerTypes/`
 
-const URLCUSTOMER = `http://localhost:8080/customerList/`
+const URLCUSTOMER = `http://localhost:8080/customer/`
 
 export const findAll = async () => {
     try {
@@ -8,6 +9,14 @@ export const findAll = async () => {
         return  result.data
     }catch (e) {
         console.log(e);
+    }
+}
+export const findAllType = async () => {
+    try {
+        let result = await axios.get(URLCUSTYPE);
+        return result.data
+    }catch (e) {
+        console.log(e)
     }
 }
 
