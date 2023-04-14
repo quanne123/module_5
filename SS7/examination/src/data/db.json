@@ -1,0 +1,51 @@
+{
+  "book": [
+    {
+      "id": 1,
+      "name": "Sách Giáo Khoa",
+      "typeBookId": 1,
+      "startDay": "1/1/2020",
+      "number": 15
+    },
+    {
+      "id": 1,
+      "name": "Truyện ngụ ngôn",
+      "typeBookId": 2,
+      "startDay": "1/1/2020",
+      "number": 30
+    },
+    {
+      "id": 1,
+      "name": "Truyện cổ tích",
+      "typeBookId": 2,
+      "startDay": "1/1/2020",
+      "number": 45
+    },
+    {
+      "name": "TLing",
+      "startDay": "2023-12-05",
+      "number": 45,
+      "typeBook": 1,
+      "typeBookId": "2",
+      "id": 2
+    },
+    {
+      "name": "Trần Văn Anh Quân",
+      "startDay": "2023-04-14",
+      "number": 99,
+      "typeBook": 1,
+      "typeBookId": "2",
+      "id": 3
+    }
+  ],
+  "typeBook": [
+    {
+      "id": 1,
+      "name": "cổ tích"
+    },
+    {
+      "id": 2,
+      "name": "ngụ ngôn"
+    }
+  ]
+}

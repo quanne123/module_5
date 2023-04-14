@@ -1,0 +1,41 @@
+{
+  "product" : [
+    {
+      "id" : 1,
+      "name" : "Máy Bay",
+      "price" : 150000,
+      "productType" : 1
+    },
+    {
+      "id" : 2,
+      "name" : "Máy Bay",
+      "price" : 150000,
+      "productType" : 2
+    },
+    {
+      "id" : 3,
+      "name" : "Máy Bay",
+      "price" : 150000,
+      "productType" : 3
+    }, {
+      "id" : 4,
+      "name" : "TF ",
+      "price" : 150000,
+      "productType" : 3
+    }
+  ],
+  "typeProduct" : [
+    {
+      "id" : 1,
+      "name" : "Đồ chơi tự động"
+    },
+    {
+      "id" : 2,
+      "name" : "Đồ chơi dẻo"
+    },
+    {
+      "id" : 3,
+      "name" : "Đồ chơi bán tự động"
+    }
+  ]
+}

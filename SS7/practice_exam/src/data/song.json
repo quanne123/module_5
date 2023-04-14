@@ -1,0 +1,46 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "name": "Chìm Sâu Sâu",
+      "author": "Nhạc Tình",
+      "type": "Nhạc Rap"
+    },
+    {
+      "id": 2,
+      "name": "Anh đã ổn hơn",
+      "author": "RPT MCK",
+      "type": "Nhạc Ballad"
+    },
+    {
+      "id": 3,
+      "name": "Tại Vì Sao",
+      "author": "RPT MCK",
+      "type": "Nhạc Tình"
+    },
+    {
+      "id": 4,
+      "name": "Tay To",
+      "author": "RPT MCK",
+      "type": "Nhạc Pop"
+    },
+    {
+      "name": "123",
+      "author": "123",
+      "type": "123",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "name": "u got got chìm sâu",
+      "author": "Tling",
+      "type": "Thanh Tuấn"
+    },
+    {
+      "name": "Thôi em đừng đi ",
+      "author": "RPT MCK",
+      "type": "Nhạc Tune",
+      "id": 8
+    }
+  ]
+}

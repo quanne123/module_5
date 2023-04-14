@@ -1,0 +1,70 @@
+{
+  "students": [
+    {
+      "id": 2,
+      "name": "Hoàng",
+      "age": 27,
+      "address": "Đà Nẵng",
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "name": "Trưởng",
+      "age": 22,
+      "address": "Miếu Bông",
+      "classId": 2
+    },
+    {
+      "name": "Tlinh",
+      "age": 12,
+      "classId": 1,
+      "address": "Đà Nẵng",
+      "id": 3
+    },
+    {
+      "name": "Mck",
+      "age": 123,
+      "classId": 1,
+      "address": "Cù Chính Lan",
+      "id": 4
+    },
+    {
+      "name": "Quan",
+      "age": 22,
+      "classId": "2",
+      "address": "Đà Nẵng",
+      "id": 5
+    },
+    {
+      "name": "Hoàng Già ",
+      "age": 28,
+      "classId": 1,
+      "address": "Hải Hồ",
+      "id": 6
+    },
+    {
+      "name": "Đin Min Thôn",
+      "age": 12,
+      "classId": "2",
+      "address": "Đà Nẵng",
+      "id": 7
+    },
+    {
+      "name": "123",
+      "age": 123,
+      "classId": 1,
+      "address": "123",
+      "id": 8
+    }
+  ],
+  "class": [
+    {
+      "id": 1,
+      "name": "C0922G1"
+    },
+    {
+      "id": 2,
+      "name": "Nghỉ Học"
+    }
+  ]
+}
